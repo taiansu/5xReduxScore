@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import logo from './logo.svg';
 import LangButtons from './LangButtons.js';
 import ScoreList from './ScoreList.js'
-import {connect} from 'react-redux';
 import './App.css';
 
 class App extends Component {
@@ -14,16 +13,10 @@ class App extends Component {
     return (
       <div className="App">
         <LangButtons />
-        <ScoreList score={this.props.score}/>
+        <ScoreList />
       </div>
     );
   }
 }
-
-const mapStateToProps = (state) => {
-  return {score: state.score}
-}
-
-App = connect(mapStateToProps)(App)
 
 export default App;
