@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import Item from './Item'
 
 class LangButtons extends Component {
+  langButtons() {
+    return this.props.score.map(lang => {
+      return <Item key={lang.id} lang={lang} />
+    })
+  }
+
   render() {
-    return null
+    return <div>{this.langButtons()}</div>
   }
 }
 
+const mapStateToProps = (state) => {
+  return {score: state.score}
+}
+
+LangButtons = connect(mapStateToProps)(LangButtons)
+
 export default LangButtons;
-  // showList() {
-  //   return this.state.score.map(item => {
-  //     return <Item lang={item}
-  //                  clickCallback={this.handleClick.bind(this)} />
-  //   })
-  //   // return Object.keys(this.state).map(k =>{
-  //   //   return <Item lang={k}
-  //   //                clickCallback={this.handleClick.bind(this)} />
-  //   // });
-  // }
