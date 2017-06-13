@@ -3,9 +3,13 @@ import {combineReducers} from 'redux'
 function score(state = [{id: 1, name: 'ruby', score: 0}], action) {
   switch (action.type) {
     case 'TALLY':
-      var index = state.findIndex(({name})=> name == action.lang)
-      state[index].score += 1
-      return state
+      return state.map(item => {
+        if (item.name == action.lang) {
+          return Object.assign({}, item, {score: item.score + 1})
+        } else {
+          return item
+        }
+      })
     default:
       return state;
   }
