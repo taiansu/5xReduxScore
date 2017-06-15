@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import logo from './logo.svg';
 import LangButtons from './LangButtons.js';
 import ScoreList from './ScoreList.js'
+import LangInput from './LangInput.js'
 import './App.css';
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
       <div className="App">
         <LangButtons />
         <ScoreList />
+        <LangInput />
       </div>
     );
   }
