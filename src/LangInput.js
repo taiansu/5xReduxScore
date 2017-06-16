@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {addLang} from './AppActions';
 
 class LangInput extends Component {
   constructor(props) {
@@ -17,5 +19,15 @@ class LangInput extends Component {
     </div>
   }
 }
+
+var mapDispatchToProps = dispatch => {
+  return {
+    addLangCb(lang){
+      dispatch(addLang(lang))
+    }
+  }
+}
+
+LangInput = connect(null, mapDispatchToProps)(LangInput);
 
 export default LangInput;
