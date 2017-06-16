@@ -1,4 +1,5 @@
 import {combineReducers} from 'redux'
+import v4 from 'uuid/v4'
 
 function score(state = [{id: 1, name: 'ruby', score: 0}], action) {
   switch (action.type) {
@@ -10,6 +11,8 @@ function score(state = [{id: 1, name: 'ruby', score: 0}], action) {
           return item
         }
       })
+    case 'ADD_LANG':
+      return [...state, {id: v4(), name: action.name, score: 0}]
     default:
       return state;
   }

@@ -3,4 +3,9 @@ const tally = (lang) => ({
   lang,
 })
 
-module.exports = {tally}
+const addLang = (name) => ({
+  type: "ADD_LANG",
+  name,
+})
+
+module.exports = {tally, addLang}
