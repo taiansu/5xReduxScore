@@ -12,10 +12,15 @@ class LangInput extends Component {
   handleChange(event){
     this.setState({lang: event.target.value})
   }
+  handleSubmit(){
+    if(!this.state.lang){ return; }
+    this.props.addLangCb(this.state.lang);
+    this.setState({lang: ""});
+  }
   render() {
     return <div>
       <input value={this.state.lang} onChange={this.handleChange.bind(this)}/>
-      <button>Submit</button>
+      <button onClick={this.handleSubmit.bind(this)}>Submit</button>
     </div>
   }
 }
