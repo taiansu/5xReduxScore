@@ -7,9 +7,12 @@ class LangInput extends Component {
       lang: "",
     }
   }
+  handleChange(event){
+    this.setState({lang: event.target.value})
+  }
   render() {
     return <div>
-      <input value={this.state.lang} />
+      <input value={this.state.lang} onChange={this.handleChange.bind(this)}/>
       <button>Submit</button>
     </div>
   }
